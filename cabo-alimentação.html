@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>TCC</title>
+    <link rel="stylesheet" href="TCC.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li class="search-container">
+                    <input type="text" id="searchInput" placeholder="Pesquisar...">
+           
+                </li>
+            </ul>
+        </nav>
+    </header> 
+
+    <h1>Cabo de alimentação</h1>
+    <p>O que faz?O cabo VGA transmite sinais de vídeo analógicos entre dispositivos, como um computador e um monitor ou projetor. <br>Ele converte os dados visuais em sinais elétricos que são interpretados pelo monitor, permitindo que a imagem seja exibida. Apesar de mais antigo, o VGA ainda é usado em equipamentos que não suportam tecnologias digitais mais modernas.
+       Quando foi criado?: Lançado em 1987.
+        Quem inventou?: Desenvolvido pela IBM.
+        </p>
+  
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                function performSearch() {
+                    const query = document.getElementById("searchInput").value.toLowerCase();
+        
+                    // Mapeamento simples de páginas com base nas palavras-chave
+                    const pages = {
+                        "home": "home.html",
+                        "sobre": "sobre.html",
+                        "roteador wifi": "roteador-wifi.html",
+                        "cabo de rede": "cabo-rede.html",
+                        "cabo sata": "cabo-sata.html",
+                        "cabo vga": "cabo-vga.html",
+                        "cabo de alimentação": "cabo-alimentação.html",
+                        "leitor de cd": "leitor-cd.html",
+                        "processador": "processador.html",
+                        "memoria ram": "memoria-ram.html",
+                        "disquete": "disquete.html",
+                        "hd (hard disc)": "hd-Memória.html",
+                        "placa de vídeo": "placa-video.html",
+                        "raspberry": "raspberry.html",
+                        "placa mãe": "placa-mãe.html",
+                        "fonte de energia": "fonte_de_energia.html",
+                        "cooler": "cooler.html"
+                    };
+        
+                    // Verifica se a consulta contém palavras-chave
+                    for (const [key, value] of Object.entries(pages)) {
+                        if (key.includes(query)) {
+                            window.location.href = value;
+                            return;
+                        }
+                    }
+        
+                    alert("Pesquise componentes do computador");
+                }
+        
+                // Acionar a função quando a tecla "Enter" for pressionada
+                document.getElementById("searchInput").addEventListener("keypress", function(event) {
+                    if (event.key === "Enter") {
+                        performSearch();
+                    }
+                });
+            });
+        </script>
+    <footer>
+        <p>© 2024 Componentes de Computador. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>v

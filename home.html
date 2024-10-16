@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>TCC</title>
+<link rel="stylesheet" href="TCC.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <nav>
+        <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li class="search-container">
+        <input type="text" id="searchInput" placeholder="Pesquisar...">
+        </li>
+        </ul>
+        </nav>
+    </header>
+    <!-- Carrossel de temas -->
+    <div class="carousel-container">
+        <button class="nav-button" id="prevBtn">Anterior</button>
+        <div class="carousel">
+            <div class="carousel-track">                    
+              
+                <div class="carousel-item" data-page="cabo-alimentação.html">
+                    Cabo de Alimentação
+                    <img src="imagens PNG/cabo de alimentação.webp">
+                </div>
+                <div class="carousel-item" data-page="cabo-rede.html">
+                    Cabo de Rede
+                    <img src="imagens PNG/cabo de rede.webp">
+                </div>
+                <div class="carousel-item" data-page="cabo-sata.html">
+                    Cabo SATA
+                    <img src="imagens PNG/cabo sata.png">
+                </div>
+                <div class="carousel-item" data-page="cabo-vga.html">
+                    Cabo VGA
+                    <img src="imagens PNG/vga.png">
+                </div>
+                <div class="carousel-item" data-page="cooler.html">
+                    Cooler
+                    <img src="imagens PNG/cooler.webp">
+                </div>
+                <div class="carousel-item" data-page="disquete.html">
+                    Disquete
+                    <img src="imagens PNG/disquete.webp">
+                </div>
+                <div class="carousel-item" data-page="hd-Memória.html">
+                    HD (Hard Disc)
+                    <img src="imagens PNG/hd.webp">
+                </div>
+                <div class="carousel-item" data-page="leitor-cd.html">
+                    Leitor de CD
+                    <img src="imagens PNG/leitor de cd.png">
+                </div>
+                <div class="carousel-item" data-page="memoria-ram.html">
+                    Memória RAM
+                    <img src="imagens PNG/memoria ram.png">
+                </div>
+                <div class="carousel-item" data-page="placa-mãe.html">
+                    Placa Mãe
+                    <img src="imagens PNG/placa mãe.webp">
+                </div>
+                <div class="carousel-item" data-page="placa-video.html">
+                    Placa de Vídeo
+                    <img src="imagens PNG/placa de vídeo.png">
+                </div>
+                <div class="carousel-item" data-page="processador.html">
+                    Processador
+                    <img src="imagens PNG/procesador.png">
+                </div>
+                <div class="carousel-item" data-page="raspberry.html">
+                    Raspberry
+                    <img src="imagens PNG/raspberry.png">
+                </div>
+                <div class="carousel-item" data-page="roteador-wifi.html">
+                    Roteador Wi-Fi
+                    <img src="imagens PNG/roteador.webp">
+                </div>
+                <div class="carousel-item" data-page="fonte_de_energia.html">
+                    Fonte de Energia
+                    <img src="imagens PNG/fonte.webp">
+                </div>                           
+            </div>
+        </div>
+        
+            <button class="nav-button" id="nextBtn">Próximo</button>
+     </div>
+            
+                
+
+
+<script>
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    const itemWidth = items[0].offsetWidth + 30; // Largura do item + margem
+    const track = document.querySelector('.carousel-track');
+    // Função para mostrar o próximo item no carrossel
+    document.getElementById('nextBtn').addEventListener('click', function() {
+    if (currentIndex < totalItems - 3) { // Mostra 3 itens de cada vez
+    currentIndex++;
+    } else {
+    currentIndex = 0; // Volta ao início
+    }
+    updateCarousel();
+    });
+
+
+    // Função para mostrar o item anterior no carrossel
+    document.getElementById('prevBtn').addEventListener('click', function() {
+    if (currentIndex > 0) {
+    currentIndex--;
+    } else {
+    currentIndex = totalItems - 3; // Vai para o último conjunto de itens
+    }
+    updateCarousel();
+    });
+
+
+    // Atualiza a posição do carrossel
+    function updateCarousel() {
+    const distanceToMove = currentIndex * itemWidth;
+    track.style.transform = `translateX(-${distanceToMove}px)`; // Movimenta o carrossel
+    }
+            
+    // Adiciona um evento de clique a cada item do carrossel
+    items.forEach(item => {
+    item.addEventListener('click', function() {
+    const page = item.getAttribute('data-page');
+    if (page) {
+    window.location.href = page; // Redireciona para a página correspondente
+    }
+    });
+    });
+</script>
+        
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function performSearch() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+
+            // Mapeamento simples de páginas com base nas palavras-chave
+            const pages = {
+                "home": "home.html",
+                "sobre": "sobre.html",
+                "roteador wifi": "roteador-wifi.html",
+                "cabo de rede": "cabo-rede.html",
+                "cabo sata": "cabo-sata.html",
+                "cabo vga": "cabo-vga.html",
+                "cabo de alimentação": "cabo-alimentação.html",
+                "leitor de cd": "leitor-cd.html",
+                "processador": "processador.html",
+                "memoria ram": "memoria-ram.html",
+                "disquete": "disquete.html",
+                "hd (hard disc)": "hd-Memória.html",
+                "placa de vídeo": "placa-video.html",
+                "raspberry": "raspberry.html",
+                "placa mãe": "placa-mãe.html",
+                "fonte de energia": "fonte_de_energia.html",
+                "cooler": "cooler.html"
+            };
+
+            // Verifica se a consulta contém palavras-chave
+            for (const [key, value] of Object.entries(pages)) {
+                if (key.includes(query)) {
+                    window.location.href = value;
+                    return;
+                }
+            }
+
+            alert("Pesquise componentes do computador");
+        }
+
+        // Acionar a função quando a tecla "Enter" for pressionada
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                performSearch();
+            }
+        });
+    });
+</script>
+    
+<footer>
+    <p>© 2024 Componentes de Computador. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

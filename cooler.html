@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>TCC</title>
+    <link rel="stylesheet" href="TCC.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li class="search-container">
+                    <input type="text" id="searchInput" placeholder="Pesquisar...">
+                </li>
+            </ul>
+        </nav>
+    </header> 
+
+    <h1>Cooler<h1>
+        <p>O que faz?
+            Um cooler é um dispositivo que dissipa o calor gerado por componentes eletrônicos, como processadores e placas de vídeo, garantindo que operem dentro de temperaturas seguras. Ele utiliza ventiladores para mover o ar e dissipar o calor, prevenindo o superaquecimento e aumentando a vida útil dos componentes. Cooler pode ser encontrado em diferentes formatos, como coolers a ar e líquido, cada um adequado para diferentes níveis de desempenho e aplicações.
+            
+            Quando foi criado?
+            Os primeiros sistemas de refrigeração começaram a aparecer nas décadas de 1950 e 1960, à medida que a tecnologia dos semicondutores se desenvolvia.
+            
+            Quem inventou?
+            Embora não haja um único inventor, várias empresas e engenheiros contribuíram para o desenvolvimento dos coolers ao longo das décadas, adaptando a tecnologia para diversas aplicações.
+            </p>
+  
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    function performSearch() {
+                        const query = document.getElementById("searchInput").value.toLowerCase();
+            
+                        // Mapeamento simples de páginas com base nas palavras-chave
+                        const pages = {
+                            "home": "home.html",
+                            "sobre": "sobre.html",
+                            "roteador wifi": "roteador-wifi.html",
+                            "cabo de rede": "cabo-rede.html",
+                            "cabo sata": "cabo-sata.html",
+                            "cabo vga": "cabo-vga.html",
+                            "cabo de alimentação": "cabo-alimentação.html",
+                            "leitor de cd": "leitor-cd.html",
+                            "processador": "processador.html",
+                            "memoria ram": "memoria-ram.html",
+                            "disquete": "disquete.html",
+                            "hd (hard disc)": "hd-Memória.html",
+                            "placa de vídeo": "placa-video.html",
+                            "raspberry": "raspberry.html",
+                            "placa mãe": "placa-mãe.html",
+                            "fonte de energia": "fonte_de_energia.html",
+                            "cooler": "cooler.html"
+                        };
+            
+                        // Verifica se a consulta contém palavras-chave
+                        for (const [key, value] of Object.entries(pages)) {
+                            if (key.includes(query)) {
+                                window.location.href = value;
+                                return;
+                            }
+                        }
+            
+                        alert("Pesquise componentes do computador");
+                    }
+            
+                    // Acionar a função quando a tecla "Enter" for pressionada
+                    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+                        if (event.key === "Enter") {
+                            performSearch();
+                        }
+                    });
+                });
+            </script>
+    
+
+    <footer>
+        <p>© 2024 Componentes de Computador. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre Nós</title>
+    <link rel="stylesheet" href="TCC.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        main {
+            margin-top: 80px; /* Ajuste conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li class="search-container">
+                    <input type="text" id="searchInput" placeholder="Pesquisar...">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+            <h1>Olá</h1>
+            <h2>Somos o GABRIEL e LORENZO</h2>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Componentes de Computador. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function performSearch() {
+                const query = document.getElementById("searchInput").value.toLowerCase();
+    
+                // Mapeamento simples de páginas com base nas palavras-chave
+                const pages = {
+                    "home": "home.html",
+                    "sobre": "sobre.html",
+                    "roteador wifi": "roteador-wifi.html",
+                    "cabo de rede": "cabo-rede.html",
+                    "cabo sata": "cabo-sata.html",
+                    "cabo vga": "cabo-vga.html",
+                    "cabo de alimentação": "cabo-alimentação.html",
+                    "leitor de cd": "leitor-cd.html",
+                    "processador": "processador.html",
+                    "memoria ram": "memoria-ram.html",
+                    "disquete": "disquete.html",
+                    "hd (hard disc)": "hd-Memória.html",
+                    "placa de vídeo": "placa-video.html",
+                    "raspberry": "raspberry.html",
+                    "placa mãe": "placa-mãe.html",
+                    "fonte de energia": "fonte_de_energia.html",
+                    "cooler": "cooler.html"
+                };
+    
+                // Verifica se a consulta contém palavras-chave
+                for (const [key, value] of Object.entries(pages)) {
+                    if (key.includes(query)) {
+                        window.location.href = value;
+                        return;
+                    }
+                }
+    
+                alert("Pesquise componentes do computador");
+            }
+    
+            // Acionar a função quando a tecla "Enter" for pressionada
+            document.getElementById("searchInput").addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
